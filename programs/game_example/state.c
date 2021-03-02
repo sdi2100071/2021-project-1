@@ -55,7 +55,7 @@ void state_update(State state) {
 			state->game_over = true;
 		}
 
-	} else if (IsKeyPressed(KEY_ENTER)) {
+	} else if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)) {
 		state_init(state);
 	}
 }
