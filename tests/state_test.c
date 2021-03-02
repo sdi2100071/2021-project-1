@@ -15,13 +15,10 @@ void test_state_create(void) {
 
 	StateInfo info = state_info(state);
 
-	TEST_CHECK(info->character != NULL);
-	TEST_CHECK(info->character->rect.x == 0);
-	TEST_CHECK(info->character->rect.y == -info->character->rect.height);
-
 	TEST_CHECK(info->current_portal == 0);
 	TEST_CHECK(info->wins == 0);
 	TEST_CHECK(info->playing);
+	TEST_CHECK(!info->playing);
 
 	// Προσθέστε επιπλέον ελέγχους
 }
