@@ -18,7 +18,7 @@ void test_state_create(void) {
 	TEST_CHECK(info->current_portal == 0);
 	TEST_CHECK(info->wins == 0);
 	TEST_CHECK(info->playing);
-	TEST_CHECK(!info->game_over);
+	TEST_CHECK(!info->paused);
 
 	// Προσθέστε επιπλέον ελέγχους
 }
