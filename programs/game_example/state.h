@@ -21,8 +21,11 @@ typedef struct state {
 	bool game_over;						// true αν είμαστε στο frame που μόλις έγινε game_over (στο επόμενο frame ξαναγίνεται false)
 }* State;
 
-// Αρχικοποιεί την κατάσταση του παιχνιδιού
-void state_init(State state);
 
-// Ενημερώνει την κατάσταση του παιχνιδιού για το επόμενο frame
+// Δημιουργεί και επιστρέφει την αρχική κατάσταση του παιχνιδιού
+
+State state_create();
+
+// Ενημερώνει την κατάσταση state του παιχνιδιού μετά την πάροδο 1 frame.
+
 void state_update(State state);

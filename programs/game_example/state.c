@@ -1,7 +1,10 @@
+#include <stdlib.h>
+
 #include "state.h"
 
-// Αρχική κατάσταση παιχνιδιού
-void state_init(State state) {
+// Αρχικοποιεί την κατάσταση το παιχνιδιού
+
+static void state_init(State state) {
 	state->score = 0;
 	state->playing = true;
 
@@ -19,11 +22,20 @@ void state_init(State state) {
 	state->ball2.position.y = state->ball2.radius;
 }
 
+// Δημιουργεί και επιστρέφει την αρχική κατάσταση του παιχνιδιού
+
+State state_create() {
+	State state = malloc(sizeof(*state));
+	state_init(state);
+	return state;
+}
+
 // Ενημερώνει την κατάσταση του παιχνιδιού για το επόμενο frame
 //
-// Για απλότητα, χρησιμοποιούμε απ'ευθείας τη συνάρτηση IsKeyDown(key) για έλεγχο των πλήκτρων.
-// Μια καλύτερη υλοποίηση θα έπαιρνε την κατάσταση των πλήκτρων σαν όρισμα, ώστε να μπορούμε
-// να δοκιμάσουμε τη συνάρτηση με κατάλληλα tests.
+// Για απλότητα, χρησιμοποιούμε απ'ευθείας τη συνάρτηση IsKeyDown(key) για
+// έλεγχο των πλήκτρων. Μια καλύτερη υλοποίηση θα έπαιρνε την κατάσταση των
+// πλήκτρων σαν όρισμα, ώστε να μπορούμε να δοκιμάσουμε τη συνάρτηση με
+// κατάλληλα tests.
 //
 void state_update(State state) {
 	state->game_over = false;		// το true διαρκεί μόνο 1 frame
@@ -56,6 +68,6 @@ void state_update(State state) {
 		}
 
 	} else if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)) {
-		state_init(state);
+		state_init(state);		// επαναφορά στην αρχική κατάσταση
 	}
 }

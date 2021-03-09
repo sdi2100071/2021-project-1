@@ -10,15 +10,15 @@
 #include "interface.h"
 #include "state.h"
 
-struct state state;
+State state;
 
 void update_and_draw() {
-	state_update(&state);
-	interface_draw_frame(&state);
+	state_update(state);
+	interface_draw_frame(state);
 }
 
 int main() {
-	state_init(&state);
+	state = state_create();
 	interface_init();
 
 	// Η κλήση αυτή καλεί συνεχόμενα την update_and_draw μέχρι ο χρήστης να κλείσει το παράθυρο
