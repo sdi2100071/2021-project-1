@@ -44,7 +44,7 @@ void test_state_update() {
 	state_update(state, &keys);
 	new_rect = state_info(state)->character->rect;
 
-	TEST_CHECK( new_rect.x == old_rect.x + 12 && new_rect.y == old_rect.y );
+	TEST_ASSERT( new_rect.x == old_rect.x + 12 && new_rect.y == old_rect.y );
 
 	// Προσθέστε επιπλέον ελέγχους
 }
