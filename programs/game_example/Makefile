@@ -24,7 +24,6 @@ include $(LIB)/libraylib.mk
 
 $(EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $(EXEC) $(LDFLAGS)
-	@if [ -f $(EXEC).exe ]; then ln -sf $(EXEC).exe $(EXEC); fi
 
 # Για να φτιάξουμε τα k08.a/libraylib.a τρέχουμε το make στο lib directory.
 $(LIB)/%.a:
