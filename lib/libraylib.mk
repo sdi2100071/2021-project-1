@@ -23,7 +23,7 @@ else ifeq ($(OS),Windows_NT)
 else ifeq ($(shell uname -s),Linux)
 	# Linux
 	LDFLAGS += -ldl -lpthread -lGL
-	export DISPLAY = :0
+	export DISPLAY ?= :0	# mainly for WSL
 else
 	# macOS
 	LDFLAGS += -framework OpenGL -framework IOKit -framework Cocoa
