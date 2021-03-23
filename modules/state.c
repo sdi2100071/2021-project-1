@@ -102,7 +102,7 @@ State state_create() {
 		obj->rect.y = - obj->rect.height;
 	}
 
-	// TODO: αρχικοποίηση της λίστας obj->portal_pairs
+	// TODO: αρχικοποίηση της λίστας state->portal_pairs
 
 	return state;
 }
